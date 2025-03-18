@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { MainComponent } from './main/main.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  standalone: true,
+  imports: [MainComponent], 
+  template: `<h1>{{ title }}</h1><app-main></app-main>`,
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'PeakCounter';
