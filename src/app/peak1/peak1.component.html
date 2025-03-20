@@ -9,23 +9,33 @@
      <!-- <button (click)="registerClimb(peak.id)">Registrar Subida</button>-->
     </li>
   </ul>
-  <h3>Registrar una ascensión</h3>
+  <div class="page-container">
+  <div class="form-container">
+    <h3>Registrar una ascensión</h3>
   <form #climbForm="ngForm" (ngSubmit)="registerClimb(climbForm.value)">
+    <div class="form-group">
     <label for="peak">Seleccionar Pico:</label>
     <select id="peak" name="peak" ngModel required>
       <option *ngFor="let peak of peaks" [value]="peak.id">{{ peak.name }}</option>
     </select>
-  
+  </div>
+
+    <div class="form-group">
     <label for="date">Fecha de la Ascensión:</label>
     <input type="date" id="date" name="date" ngModel required />
-  
+    </div>
+
+    <div class="form-group">
     <label for="altitude">Desnivel Acumulado (en metros):</label>
     <input type="number" id="altitude" name="altitude" ngModel required />
+    </div>
 
+    <div class="form-group">
     <label for="distance">Kilómetros Recorridos:</label>
     <input type="number" id="distance" name="distance" ngModel required />
-  
+    </div>
     <button type="submit" [disabled]="!climbForm.valid">Registrar Ascensión</button>
   </form>
-  
+</div>
+</div>
 <p>peak1 works!</p>
