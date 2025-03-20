@@ -1,1 +1,13 @@
+
+<h2>Picos de la Sierra de Madrid</h2>
+
+<ul>
+    <li *ngFor="let peak of peaks">
+      <strong>{{ peak.name }}</strong> - Altitud: {{ peak.altitud }} metros
+      <br> Total subidas: {{ peak.climbs }}
+      <br> Última subida: {{ peak.lastClimb || 'Ninguna' }}
+      <button (click)="registerClimb(peak.id)">Registrar Subida</button>
+    </li>
+  </ul>
+
 <p>peak1 works!</p>
