@@ -74,7 +74,23 @@ app.post('/peaks/climb', (req, res) => {
   });
 });
 
+app.post('/climbs', (req, res) => {
+  const { peak, date, altitude, distance } = req.body;
 
+  if (!peak || !date || altitude == null || distance == null) {
+      return res.status(400).send('Todos los campos (peak, date, altitude, distance) son obligatorios');
+  }
+
+  const query = `INSERT INTO climbs (peak_id, date, altitude, distance) VALUES (?, ?, ?, ?)`;
+
+  db.query(query, [peak, date, altitude, distance], (err, result) => {
+      if (err) {
+          console.error('Error al registrar la subida:', err);
+          return res.status(500).send('Error al registrar la subida');
+      }
+      res.status(200).send('Subida registrada con éxito');
+  });
+});
 
 // Iniciar el servidor
 app.listen(PORT, () => {

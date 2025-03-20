@@ -19,4 +19,8 @@ export class PeaksService {
   logClimb(data: { id: number; date: string }): Observable<any> {
     return this.http.post(`${this.baseUrl}/peaks/climb`, data);
   }
+  // Insertar datos detallados de una subida
+  logClimbDetails(data: { peak: number; date: string; altitude: number; distance: number }): Observable<any> {
+    return this.http.post(`${this.baseUrl}/climbs`, data);
+}
 }

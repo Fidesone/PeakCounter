@@ -19,8 +19,11 @@
     <label for="date">Fecha de la Ascensión:</label>
     <input type="date" id="date" name="date" ngModel required />
   
-    <label for="notes">Comentarios:</label>
-    <textarea id="notes" name="notes" ngModel></textarea>
+    <label for="altitude">Desnivel Acumulado (en metros):</label>
+    <input type="number" id="altitude" name="altitude" ngModel required />
+
+    <label for="distance">Kilómetros Recorridos:</label>
+    <input type="number" id="distance" name="distance" ngModel required />
   
     <button type="submit" [disabled]="!climbForm.valid">Registrar Ascensión</button>
   </form>

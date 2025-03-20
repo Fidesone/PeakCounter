@@ -31,26 +31,33 @@ export class Peak1Component implements OnInit {
     });
   }
 
-  // Registrar una subida
   registerClimb(climbData: any): void {
     const selectedPeak = this.peaks.find(peak => peak.id === parseInt(climbData.peak));
     if (selectedPeak) {
       const today = new Date().toISOString().split('T')[0]; // Fecha actual
       const climbDetails = {
-        id: selectedPeak.id,
-        date: climbData.date || today, // Fecha seleccionada o la actual
-        climbs: selectedPeak.climbs + 1 // Incrementar las subidas
+        peak: selectedPeak.id,             // Cambiar 'id' por 'peak'
+        date: climbData.date || today,     // Fecha seleccionada o actual
+        altitude: climbData.altitude,      // Desnivel acumulado
+        distance: climbData.distance       // Kilómetros recorridos
       };
-
-      // Llamada al servicio para persistir los datos
-      this.peaksService.logClimb(climbDetails).subscribe(
+  
+      // Registrar los detalles de la subida
+      this.peaksService.logClimbDetails(climbDetails).subscribe(
         response => {
-          console.log('Ascensión registrada:', response);
+          console.log('Detalles de la subida registrados:', response);
           this.loadPeaks(); // Recargar datos desde el servidor
-          console.log('Datos enviados:', climbDetails);
         },
-        error => console.error('Error al registrar la ascensión:', error)
+        error => console.error('Error al registrar detalles de la subida:', error)
+      );
+  
+      // Incrementar las subidas en la tabla 'peaks'
+      this.peaksService.logClimb({ id: selectedPeak.id, date: climbDetails.date }).subscribe(
+        response => console.log('Subida registrada en peaks:', response),
+        error => console.error('Error al actualizar peaks:', error)
       );
     }
   }
+  
+  
 }
