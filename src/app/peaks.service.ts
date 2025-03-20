@@ -15,8 +15,8 @@ export class PeaksService {
     return this.http.get<any[]>(`${this.baseUrl}/peaks`);
   }
 
-  // Registrar una subida a un pico
-  logClimb(peakId: number): Observable<any> {
-    return this.http.post(`${this.baseUrl}/peaks/${peakId}/climb`, {});
+  // Registrar una ascensión
+  logClimb(data: { id: number; date: string }): Observable<any> {
+    return this.http.post(`${this.baseUrl}/peaks/climb`, data);
   }
 }
