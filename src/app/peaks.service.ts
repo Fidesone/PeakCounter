@@ -22,5 +22,10 @@ export class PeaksService {
   // Insertar datos detallados de una subida
   logClimbDetails(data: { peak: number; date: string; altitude: number; distance: number }): Observable<any> {
     return this.http.post(`${this.baseUrl}/climbs`, data);
-}
+  }
+  // Registrar un nuevo usuario
+  registerUser(data: { nombre: string; email: string; password: string }): Observable<any> {
+    console.log('Datos enviados desde el servicio al backend:', data);
+    return this.http.post(`${this.baseUrl}/register`, data);
+  }
 }
