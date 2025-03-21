@@ -1,77 +1,95 @@
 /* Contenedor principal que ocupa toda la pantalla */
 .page-container {
-    display: flex;
-    justify-content: center; /* Centra el formulario horizontalmente */
-    align-items: center;    /* Centra el formulario verticalmente */
-    height: 100vh;          /* Ocupa toda la altura de la pantalla */
-    background-color: #f0f2f5; /* Fondo claro para resaltar el formulario */
+  display: flex;
+  justify-content: center; /* Centra el formulario horizontalmente */
+  align-items: center;    /* Centra el formulario verticalmente */
+  height: 100vh;          /* Ocupa toda la altura de la pantalla */
+  background-color: #f0f2f5; /* Fondo claro para resaltar el formulario */
   }
 .form-container {
-    width: 50%;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-  }
+  width: 50%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
   
-  h2,h3{
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-  }
+h2,h3{
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
   
-  .form-group {
-    margin-bottom: 15px;
-  }
+.form-group {
+  margin-bottom: 15px;
+}
   
-  label {
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
-    color: #555;
-    margin-bottom: 5px;
-  }
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
   
-  select,
-  input {
-    width: 100%;
-    padding: 8px 12px;
-    font-size: 14px;
-    color: #333;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
+select,input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
   
-  input::placeholder {
-    color: #aaa;
-  }
+input::placeholder {
+  color: #aaa;
+}
   
-  .submit-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    background-color: #28a745;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
-  }
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
   
-  .submit-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
   
-  .submit-button:hover:not(:disabled) {
-    background-color: #218838;
-  }
-  
+.submit-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.ul-container {
+  background-color: #f9f9f9; /* Fondo claro */
+  border: 2px solid #ccc; /* Borde */
+  border-radius: 8px; /* Esquinas redondeadas */
+  padding: 10px; /* Espaciado interno */
+  max-width: 300px; /* Ancho máximo */
+  margin: 20px auto; /* Centrando en la página */
+}
+
+.ul-container ul {
+  list-style-type: none;
+  padding-left: 20px; /* Separación de las viñetas */
+}
+
+.ul-container li {
+  font-family: 'Arial', sans-serif; /* Fuente */
+  color: #333; /* Color del texto */
+  margin: 5px 0; /* Espaciado entre elementos */
+}
