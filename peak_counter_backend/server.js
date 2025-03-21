@@ -143,14 +143,14 @@ app.post('/register', (req, res) => {
 
 //Inicio de sesion
 app.post('/login', (req, res) => {
-  const { email, password } = req.body;
+  const { name_user, password } = req.body;
 
-  if (!email || !password) {
+  if (!name_user || !password) {
     return res.status(400).send('Email y contraseña son obligatorios');
   }
 
   // Buscar al usuario en la base de datos
-  db.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
+  db.query('SELECT * FROM users WHERE name_user = ?', [name_user], (err, results) => {
     if (err) {
       console.error('Error al buscar el usuario:', err);
       return res.status(500).send('Error interno en el servidor');
@@ -174,7 +174,7 @@ app.post('/login', (req, res) => {
       }
 
       // Crear un token (JWT)
-      const token = jwt.sign({ id: user.id, email: user.email }, 'secret_key', { expiresIn: '1h' });
+      const token = jwt.sign({ id: user.id, name_user: user.name_user, email: user.email }, 'secret_key', { expiresIn: '1h' });
       res.json({ mensaje: 'Inicio de sesión exitoso', token });
     });
   });

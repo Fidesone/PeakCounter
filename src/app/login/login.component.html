@@ -1,0 +1,14 @@
+<p>login works!</p>
+<div class="form-container">
+    <form (ngSubmit)="onSubmit(loginForm.value)" #loginForm="ngForm">
+      <label for="name_user">Username:</label>
+      <input id="name_user" type="text" name="name_user" ngModel required>
+      
+      <label for="password">Password:</label>
+      <input id="password" type="password" name="password" ngModel required>
+      
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+  </div>
+  
+  
