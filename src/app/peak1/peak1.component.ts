@@ -53,9 +53,18 @@ export class Peak1Component implements OnInit {
   
       // Incrementar las subidas en la tabla 'peaks'
       this.peaksService.logClimb({ id: selectedPeak.id, date: climbDetails.date }).subscribe(
-        response => console.log('Subida registrada en peaks:', response),
-        error => console.error('Error al actualizar peaks:', error)
+        response => {
+          if (response.success) {
+            console.log('Subida registrada en peaks:', response);
+          } else {
+            console.error('Error en la respuesta:', response);
+          }
+        },
+        error => {
+          console.error('Error al actualizar peaks:', error);
+        }
       );
+      
     }
   }
   

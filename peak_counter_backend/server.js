@@ -90,7 +90,7 @@ app.post('/peaks/climb', (req, res) => {
       console.error('Error al registrar la ascensión:', err);
       return res.status(500).send('Error al registrar la ascensión');
     }
-    res.status(200).send('Ascensión registrada correctamente');
+    res.status(200).json({ success: true, message: 'Ascensión registrada correctamente' });
   });
 });
 
