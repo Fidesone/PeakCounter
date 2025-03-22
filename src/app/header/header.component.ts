@@ -36,6 +36,7 @@ export class HeaderComponent {
   logout(): void {
     localStorage.removeItem('auth_token'); // Limpia el token al cerrar sesión
     this.loggedInUser = null; // Reinicia el estado del usuario
+    console.log('Sesión cerrada');
   }
 }
 

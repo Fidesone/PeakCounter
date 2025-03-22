@@ -4,7 +4,7 @@
   <span *ngIf="loggedInUser" class="user-info">
     Hola, {{ loggedInUser }}.
   </span>
-  <button (click)="logout()">Cerrar Sesión</button>
+  <button *ngIf="loggedInUser" (click)="logout()">Cerrar Sesión</button>
 </nav>
 
 <header>
